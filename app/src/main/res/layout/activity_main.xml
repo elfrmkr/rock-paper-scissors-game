@@ -1,0 +1,64 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rock, Paper, Scissors"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Computer's Choice TextView -->
+    <TextView
+        android:id="@+id/computerChoiceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Computer chose:"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Result TextView -->
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your move"
+        android:textSize="18sp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Buttons for Player Choices -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/rockButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rock" />
+
+        <Button
+            android:id="@+id/paperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paper"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <Button
+            android:id="@+id/scissorsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scissors" />
+    </LinearLayout>
+
+</LinearLayout>
