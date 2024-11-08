@@ -1,67 +1,96 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp">
 
-    <!-- Title TextView -->
+
+    <!-- Computer hand image, occupies extra vertical space -->
+
     <TextView
-        android:id="@+id/titleText"
+        android:id="@+id/gameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rock, Paper, Scissors"
+        android:layout_marginBottom="20dp"
+        android:padding="16dp"
+        android:text="PLAY GAME"
+        android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="24sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginBottom="32dp" />
+        android:textStyle="bold" />
 
-    <!-- Computer's Choice TextView -->
+    <ImageView
+        android:id="@+id/computerThinkingHand"
+        android:layout_width="309dp"
+        android:layout_height="200dp"
+        android:rotation="90"
+        android:src="@drawable/ic_rock" />
+
+    <!-- Computer choice text label -->
     <TextView
-        android:id="@+id/computerChoiceText"
+        android:id="@+id/computerChoiceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Computer chose:"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dip"
+        android:padding="18dp"
+        android:text="Computer is choosing..."
+        android:textSize="16sp" />
 
-    <!-- Result TextView -->
+    <!-- Result Text (Initially Hidden, Will Show After Game) -->
     <TextView
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose your move"
-        android:textSize="18sp"
-        android:layout_marginBottom="32dp" />
+        android:text=""
+        android:textSize="32sp"
+        android:textColor="#000000" />
 
-    <!-- Buttons for Player Choices -->
+    <!-- Computer choice icon, occupies extra vertical space and initially hidden -->
+    <ImageView
+        android:id="@+id/computerChoiceIcon"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+    <!-- Button layout, with buttons horizontally aligned -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp">
 
         <Button
             android:id="@+id/rockButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#DC1357"
-            android:text="Rock" />
+            android:layout_weight="1"
+            android:backgroundTint="#E91E63"
+            android:text="Rock"
+            android:layout_margin="8dp"/>
 
         <Button
             android:id="@+id/paperButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="#9C27B0"
-            android:text="Paper" />
+            android:layout_weight="1"
+            android:backgroundTint="#03A9F4"
+            android:text="Paper"
+            android:layout_margin="8dp"/>
 
         <Button
             android:id="@+id/scissorsButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#2196F3"
-            android:text="Scissors" />
+            android:layout_weight="1"
+            android:backgroundTint="#FBA527"
+            android:text="Scissors"
+            android:layout_margin="8dp"/>
     </LinearLayout>
 
 </LinearLayout>
