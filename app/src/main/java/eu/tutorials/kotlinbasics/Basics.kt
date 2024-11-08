@@ -1,37 +1,56 @@
+// Basics.kt
 package eu.tutorials.kotlinbasics
 
-fun main() {
-    do {
-        val playerChoice = getPlayerChoice()
-        val computerChoice = getComputerChoice()
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 
-        println("Computer chose: $computerChoice")
+class Basics : AppCompatActivity() {
 
-        val winner = determineWinner(playerChoice, computerChoice)
-        displayResult(winner)
+    private lateinit var computerChoiceText: TextView
+    private lateinit var resultText: TextView
 
-        println("Play again? (yes/no)")
-    } while (readln().lowercase() == "yes")
-}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    fun getPlayerChoice(): String {
-        println("Rock, paper, scissors: Enter your choice")
-        val validChoices = listOf("rock", "paper", "scissors")
-        var playerChoice = readln().lowercase()
+        // Initialize views
+        computerChoiceText = findViewById(R.id.computerChoiceText)
+        resultText = findViewById(R.id.resultText)
 
-        while (playerChoice !in validChoices) {
-            println("Invalid choice, please choose rock, paper, or scissors")
-            playerChoice = readln().lowercase()
-        }
-        return playerChoice
+        val rockButton: Button = findViewById(R.id.rockButton)
+        val paperButton: Button = findViewById(R.id.paperButton)
+        val scissorsButton: Button = findViewById(R.id.scissorsButton)
+
+        // Set onClickListeners for each choice button
+        rockButton.setOnClickListener { playGame("rock") }
+        paperButton.setOnClickListener { playGame("paper") }
+        scissorsButton.setOnClickListener { playGame("scissors") }
     }
 
-    fun getComputerChoice(): String {
+    private fun playGame(playerChoice: String) {
+        // Get computer choice
+        val computerChoice = getComputerChoice()
+
+        // Display computer's choice
+        computerChoiceText.text = "Computer chose: $computerChoice"
+
+        // Determine the winner
+        val winner = determineWinner(playerChoice, computerChoice)
+
+        // Display the result
+        displayResult(winner)
+    }
+
+    private fun getComputerChoice(): String {
+        // Randomly select from rock, paper, or scissors
         val choices = listOf("rock", "paper", "scissors")
         return choices.random()
     }
 
-    fun determineWinner(playerChoice: String, computerChoice: String): String {
+    private fun determineWinner(playerChoice: String, computerChoice: String): String {
+        // Determine who wins based on the player's and computer's choices
         return when {
             playerChoice == computerChoice -> "Tie"
             playerChoice == "rock" && computerChoice == "scissors" -> "Player"
@@ -41,10 +60,13 @@ fun main() {
         }
     }
 
-    fun displayResult(winner: String) {
-        if (winner == "Tie") {
-            println("It's a tie!")
-        } else {
-            println("$winner wins!")
+    private fun displayResult(winner: String) {
+        // Update resultText to show the winner or if it's a tie
+        resultText.text = when (winner) {
+            "Tie" -> "It's a tie!"
+            "Player" -> "You win!"
+            "Computer" -> "Computer wins!"
+            else -> ""
         }
     }
+}
