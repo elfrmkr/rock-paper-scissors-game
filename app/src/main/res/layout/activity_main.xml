@@ -44,20 +44,23 @@
             android:id="@+id/rockButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#DC1357"
             android:text="Rock" />
 
         <Button
             android:id="@+id/paperButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paper"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#9C27B0"
+            android:text="Paper" />
 
         <Button
             android:id="@+id/scissorsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#2196F3"
             android:text="Scissors" />
     </LinearLayout>
 
